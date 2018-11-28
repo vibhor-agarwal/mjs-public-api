@@ -14,9 +14,10 @@ let jsonServerConfig = JSON.parse(jsonServerConfigJson);
 let jsonServerPort = jsonServerConfig.port;
 console.log('Using port: ' + jsonServerPort);
 
-let port = Number.parseInt(jsonServerPort);
+const PORT = process.env.PORT;
+
 server.use(middlewares);
 server.use(router);
-server.listen(port, () => {
+server.listen(PORT, () => {
     console.log('JSON Server is running')
 });
